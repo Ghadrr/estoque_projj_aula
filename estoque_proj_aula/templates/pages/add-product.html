@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}
+        <h1> Adicionar Produto</h1>
+        <input type="text" name="name" placeholder="nome">
+        <select name="category"  id="">
+            {% for category in categories %}
+            
+            <option value="{{category.id}}">{{ category.name }}</option>
+
+            {% endfor %}
+        </select>
+
+        <!-- <input type="text" name="category" placeholder="categoria"> -->
+        <input type="file" name="picture" placeholder="imagem">
+        <input type="text" name="price" placeholder="preço">
+        <input type="text" name="description" placeholder="descrição">
+        <input type="text" name="qtd" placeholder="quantidade">
+        <input type="text" name="discount" placeholder="desconto">
+        <button type="submit" class="btn btn-succcess mt-2">Salvar</button>
+
+    </form>
+
+</body>
+</html>
