@@ -3,10 +3,10 @@ from django.shortcuts import render, HttpResponse
 from .models import Products, Categories
 from random import randint
 from datetime import datetime
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required(redirect_field_name='login')
 def add_product(request):
 
     if request.method == 'POST':
@@ -75,4 +75,4 @@ def sell_product(request, id):
         return redirect('home')
     else:
         return render(request, 'pages/product_detail.html', {'product': product})
-
+    
