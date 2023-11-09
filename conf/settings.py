@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # MY APPS
-    'estoque_proj_aula' 
+    'estoque_proj_aula', 
+    'accounts'
 ]
 
 MIDDLEWARE = [

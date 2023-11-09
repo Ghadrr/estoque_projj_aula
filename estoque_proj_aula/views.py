@@ -35,7 +35,6 @@ def add_product(request):
 
 def product_detail(request, id):
     product = Products.objects.get(id=id)
-    
     return render(request, 'pages/product_detail.html',{'product':product})
 
 def delete_product(request, id):
@@ -65,12 +64,15 @@ def search_product(request):
     produtos = Products.objects.filter(name__icontains=q)
     return render(request, 'pages/index.html', {'produtos':produtos})
 
+
+
 def sell_product(request, id):
     product = Products.objects.get(id=id)
     product.qtd -= 1
+    product.save()
     if product.qtd<1:
         product.in_stock = False
         return redirect('home')
-    product.save()
-    return redirect(request, 'pages/product_detail.html',{'product':product)
-    
+    else:
+        return render(request, 'pages/product_detail.html', {'product': product})
+
