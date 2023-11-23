@@ -31,5 +31,8 @@ def register(request):
                                  password=password)
     else:
         return render(request, 'pages/register.html')
-
+    
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 

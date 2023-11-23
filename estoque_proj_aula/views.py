@@ -23,6 +23,7 @@ def add_product(request):
         in_stock = True
 
         Products.objects.create(
+            user_id=request.user.id,
             name=name, cod=cod, category_id=category, picture=picture, price=price, description=description,
             qtd=qtd, discount=discount, created_at=created_at, in_stock=in_stock
 

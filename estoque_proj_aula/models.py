@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 # Create your models here.  
 
@@ -20,7 +20,7 @@ class Products(models.Model):
     #     ('3', 'G'),
     #     ('4', 'GG')
     # ]
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     category = models.ForeignKey(Categories, on_delete=models.CASCADE)
     picture = models.ImageField(blank=False)
